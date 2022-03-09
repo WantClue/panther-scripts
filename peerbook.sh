@@ -1,7 +1,4 @@
-echo "Now I copy your old sys.conf to the new file sys.config.old"
-	echo "Then I download the updated file"
-	echo "Grab a beer and enjoy the increased PeerBook"
-	
+
 	echo "download complete!"
 	echo "stopping miner now"
 	docker stop helium-miner
