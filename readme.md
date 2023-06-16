@@ -1,13 +1,12 @@
-Disclaimer:
+# What this is
+This is a repo used for the Panther X2 LoRaWAN Gateway/Miner
 
-If you´re not sure what you do DON´T use this.
 
-------------------------------------------------------------------------------------------------
+## You will find a folder for the Helium ecosystem aswell for the ThingsIX ecosystem
 
-# Increase the Panther X2 Peerbook:
+Just take a look
 
-You can use this script if you have access to the Hotspot via SSH
 
-```
-wget https://raw.githubusercontent.com/WantClue/panther-scripts/main/peerbook.sh -O - | sudo bash
-```
+
+# SUPPORT MY WORK
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R5R0IYN9V)
