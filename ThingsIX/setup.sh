@@ -77,6 +77,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_eu_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_eu_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 1 here
@@ -90,6 +91,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_us_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_us_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 2 here
@@ -103,6 +105,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_kr_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_kr_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 3 here
@@ -116,6 +119,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_as_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_as_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 4 here
@@ -129,6 +133,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_au_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_au_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 5 here
@@ -142,6 +147,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_in_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_in_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 6 here
@@ -155,6 +161,7 @@ function install() {
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_ru_1
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_ru_1
             else 
+                echo "Aborted"
                 exit
             fi
             # Execute your command for Option 7 here
@@ -195,6 +202,7 @@ function install() {
     if whiptail --yesno "You're almost done we now need to start the actual forwarder Docker Container. Are you ready?" 8 60; then
         docker run -d --name thingsix-forwarder -p 1685:1680/udp --restart unless-stopped -v /etc/thingsix-forwarder:/etc/thingsix-forwarder ghcr.io/thingsixfoundation/packet-handling/forwarder:1.1.1 --net=main
     else
+        echo "Aborted"
         exit
     fi
 
@@ -219,6 +227,7 @@ function onboard() {
             echo -e "${CYAN}Please enter your Polygon Wallet address to onboard this device to your Wallet${NC}"
             read wallet
     else
+        echo "Aborted"
         exit
     fi
 
