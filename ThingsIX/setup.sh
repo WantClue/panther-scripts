@@ -11,7 +11,7 @@ NC='\033[0m'
 
 #paths
 dir_path="/etc/thingsix-forwarder"
-file_path="/home/pi/hnt/paket/paket/packet_forwarder/global_conf.json"
+file_path="/etc/global_conf.json"
 local_id="/etc/thingsix-forwarder/unknown_gateways.yaml"
 
 
@@ -28,7 +28,7 @@ function install() {
 	fi
 	if [[ $(lsb_release -d) != *Debian* && $(lsb_release -d) != *Ubuntu* ]]; then
                 echo -e "${WORNING} ${CYAN}ERROR: ${RED}OS version $(lsb_release -si) not supported${NC}"
-                echo -e "${CYNA}Official Pisces Software is the recommended OS version .. please re-image and retry installation"
+                echo -e "${CYNA}Official Panther X2 Software is the recommended OS version .. please re-image and retry installation"
                 echo -e "${WORNING} ${CYAN}Installation stopped...${NC}"
                 echo
                 exit
@@ -98,7 +98,7 @@ function onboard() {
 	fi
     sleep 3
 
-    if whiptail --yesno "You need to go into the WebUI of your Pisces Miner now and disable the forwarder. After that enable the forwarder again. Have you done so?" 8 60; then
+    if whiptail --yesno "You need to go into the WebUI of your Panther Miner now and disable the forwarder. After that enable the forwarder again. Have you done so?" 10 60; then
             id=$(grep -Po 'local_id: \K.*' $local_id)
             echo -e "${CYAN}Please enter your Polygon Wallet address to onboard this device to your Wallet${NC}"
             read wallet
@@ -134,7 +134,7 @@ figlet -f slant "Toolbox"
 echo -e "${YELLOW}================================================================${NC}"
 echo -e "${GREEN}OS: Ubuntu 16/18/19/20, Debian 9/10 ${NC}"
 echo -e "${GREEN}Created by: WantClue${NC}"
-echo -e "${GREEN}Special thanks to hekopath and kotelohridski${NC}"
+echo -e "${GREEN}Special thanks to hekopath${NC}"
 echo -e "${YELLOW}================================================================${NC}"
 echo -e "${CYAN}1  - Installation of ThingsIX forwarder and mux${NC}"
 echo -e "${CYAN}2  - Onboarding of ThingsIX Gateway${NC}"
