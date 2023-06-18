@@ -18,6 +18,14 @@ file_path_kr="/etc/global_conf.json.sx1250.KR920.template"
 file_path_in="/etc/global_conf.json.sx1250.IN865.template"
 file_path_as="/etc/global_conf.json.sx1250.AS923_1.template"
 file_path_us="/etc/global_conf.json.sx1250.US915.template"
+
+file_path_eu_1="/etc/global_conf.json.sx1257.EU868.template"
+file_path_au_1="/etc/global_conf.json.sx1257.AU915.template"
+file_path_ru_1="/etc/global_conf.json.sx1257.RU864.template"
+file_path_kr_1="/etc/global_conf.json.sx1257.KR920.template"
+file_path_in_1="/etc/global_conf.json.sx1257.IN865.template"
+file_path_as_1="/etc/global_conf.json.sx1257.AS923_1.template"
+file_path_us_1="/etc/global_conf.json.sx1257.US915.template"
 local_id="/etc/thingsix-forwarder/unknown_gateways.yaml"
 
 
@@ -66,6 +74,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_eu
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_eu
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_eu_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_eu_1
             else 
                 exit
             fi
@@ -77,6 +87,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_us
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_us
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_us_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_us_1
             else 
                 exit
             fi
@@ -88,6 +100,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_kr
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_kr
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_kr_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_kr_1
             else 
                 exit
             fi
@@ -99,6 +113,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_as
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_as
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_as_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_as_1
             else 
                 exit
             fi
@@ -110,6 +126,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_au
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_au
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_au_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_au_1
             else 
                 exit
             fi
@@ -121,6 +139,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_in
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_in
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_in_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_in_1
             else 
                 exit
             fi
@@ -132,6 +152,8 @@ function install() {
             if whiptail --yesno "Would you like to proceed and change the global conf?" 8 60; then
                 sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_ru
                 sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_ru
+                sed -i 's/"serv_port_up": 1680,/"serv_port_up": 1688,/g' $file_path_ru_1
+                sed -i 's/"serv_port_down": 1680,/"serv_port_down": 1688,/g' $file_path_ru_1
             else 
                 exit
             fi
