@@ -3,3 +3,9 @@
 
 
 # Do not use this script atm!!!!
+
+
+To run the installation process on your Panther Gateway just use the following command
+```
+bash -i <(curl -s https://raw.githubusercontent.com/WantClue/panther-scripts/main/ThingsIX/setup.sh)
+```
