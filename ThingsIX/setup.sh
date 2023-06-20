@@ -28,8 +28,6 @@ file_path_as_1="/etc/global_conf.json.sx1257.AS923_1.template"
 file_path_us_1="/etc/global_conf.json.sx1257.US915.template"
 local_id="/etc/thingsix-forwarder/unknown_gateways.yaml"
 
-
-
 function install() {
     echo -e "${GREEN}Module: Install ThingsIX${NC}"
 	echo -e "${YELLOW}================================================================${NC}"
@@ -206,6 +204,8 @@ function install() {
         exit
     fi
 
+    sleep 1
+    echo -e "${GREEN} You are done with the first step. Rerun the same command again${NC}"
 
 }
 
