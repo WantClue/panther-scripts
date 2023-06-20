@@ -4,6 +4,13 @@
 
 # How to use the script!!!!
 
+# READ THIS 
+
+Currently the Panther Watchdog changes the config files every 10minutes back to it original state. 
+
+It's under investigation and will be fixxed soon.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 To run the installation process on your Panther Gateway just use the following command
 ```
