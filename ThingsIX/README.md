@@ -19,4 +19,4 @@ bash -i <(curl -s https://raw.githubusercontent.com/WantClue/panther-scripts/mai
 
 # Watch the video
 
-Link: 
+Link: https://youtu.be/-8B0lxS4MYQ
