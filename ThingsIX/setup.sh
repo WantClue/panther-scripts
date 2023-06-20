@@ -11,6 +11,7 @@ NC='\033[0m'
 
 #paths
 dir_path="/etc/thingsix-forwarder"
+timer_path="/etc/systemd/system/pantherx-watchdog.timer"
 file_path_eu="/etc/global_conf.json.sx1250.EU868.template"
 file_path_au="/etc/global_conf.json.sx1250.AU915.template"
 file_path_ru="/etc/global_conf.json.sx1250.RU864.template"
@@ -52,6 +53,8 @@ function install() {
         echo -e "${RED}Directory will be created ...${NC}"
         mkdir -p /etc/thingsix-forwarder
     fi
+
+    sed -i 's/OnBootSec=600/OnBootSec=infinity/g;s/OnUnitActiveSec=600/OnUnitActiveSec=infinity/g' $timer_path
 
     OPTION=$(whiptail --title "Choose your Region" --menu "Choose the Region you deploy our Gateway" 20 60 10 \
     "1" "EU 868" \
