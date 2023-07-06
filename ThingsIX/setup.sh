@@ -201,7 +201,7 @@ function install() {
     fi
 
     if whiptail --yesno "You're almost done we now need to start the actual forwarder Docker Container. Are you ready?" 8 60; then
-        docker run -d --name thingsix-forwarder -p 1685:1680/udp --restart unless-stopped -v /etc/thingsix-forwarder:/etc/thingsix-forwarder ghcr.io/thingsixfoundation/packet-handling/forwarder:1.1.1 --net=main
+        docker run -d --name thingsix-forwarder -p 1685:1680/udp --restart unless-stopped -v /etc/thingsix-forwarder:/etc/thingsix-forwarder ghcr.io/thingsixfoundation/packet-handling/forwarder:latest --net=main
     else
         echo "Aborted"
         exit
