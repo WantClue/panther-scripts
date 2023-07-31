@@ -172,6 +172,8 @@ function install() {
         echo "You chose Cancel."
     fi
 
+    if docker inspect gwmp-mux >/dev/null 2>&1; then
+    # Container exists, check if it is running
     if [[ $(docker ps -f "name=gwmp-mux" --format "{{.Names}}") == "gwmp-mux" ]]; then
         if whiptail --yesno "The Docker container 'gwmp-mux' is already running. Do you want to remove it?" 8 60; then
             docker stop gwmp-mux
@@ -181,6 +183,19 @@ function install() {
             echo "Aborting..."
             exit
         fi
+    else
+        # Container exists but is not running
+        if whiptail --yesno "The Docker container 'gwmp-mux' exists but is not running. Do you want to remove it?" 8 70; then
+            docker rm gwmp-mux
+            echo "Container 'gwmp-mux' removed."
+        else
+            echo "Aborting..."
+            exit
+        fi
+    fi
+    else
+    # Container does not exist
+    echo "The Docker container 'gwmp-mux' does not exist."
     fi
 
     if whiptail --yesno "Now we need to start the Docker Container for the thingsix mux are you ready?" 8 60; then
@@ -189,6 +204,8 @@ function install() {
         exit
     fi
 
+    if docker inspect thingsix-forwarder >/dev/null 2>&1; then
+    # Container exists
     if [[ $(docker ps -f "name=thingsix-forwarder" --format "{{.Names}}") == "thingsix-forwarder" ]]; then
         if whiptail --yesno "The Docker container 'thingsix-forwarder' is already running. Do you want to remove it?" 8 60; then
             docker stop thingsix-forwarder
@@ -198,6 +215,10 @@ function install() {
             echo "Aborting..."
             exit
         fi
+    fi
+    else
+    # Container does not exist
+    echo "The Docker container 'thingsix-forwarder' does not exist."
     fi
 
     if whiptail --yesno "You're almost done we now need to start the actual forwarder Docker Container. Are you ready?" 8 60; then
@@ -236,6 +257,9 @@ function onboard() {
 
     docker exec thingsix-forwarder ./forwarder gateway onboard-and-push $id $wallet
 
+    echo -e "${CYAN}Now the system will reboot in 5 seconds.${NC}"
+    sleep 5
+    reboot now
 }
 
 function watchtower() {
