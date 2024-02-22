@@ -279,7 +279,28 @@ function watchtower() {
 
 }
 
+function uninstall() {
+    echo -e "${GREEN}Module: Uninstall ThingsIX${NC}"
+    echo -e "${YELLOW}================================================================${NC}"
 
+    # Stop and remove Docker containers
+    docker stop gwmp-mux thingsix-forwarder
+    docker rm gwmp-mux thingsix-forwarder
+
+    # Revert changes in global_conf.json files
+    sed -i 's/"serv_port_up": 1688,/"serv_port_up": 1680,/g' $file_path_eu $file_path_us $file_path_kr $file_path_as $file_path_au $file_path_in $file_path_ru
+    sed -i 's/"serv_port_down": 1688,/"serv_port_down": 1680,/g' $file_path_eu $file_path_us $file_path_kr $file_path_as $file_path_au $file_path_in $file_path_ru
+
+    sed -i 's/"serv_port_up": 1688,/"serv_port_up": 1680,/g' $file_path_eu_1 $file_path_us_1 $file_path_kr_1 $file_path_as_1 $file_path_au_1 $file_path_in_1 $file_path_ru_1
+    sed -i 's/"serv_port_down": 1688,/"serv_port_down": 1680,/g' $file_path_eu_1 $file_path_us_1 $file_path_kr_1 $file_path_as_1 $file_path_au_1 $file_path_in_1 $file_path_ru_1
+
+    # Restore watchdog timer settings
+    sed -i 's/OnBootSec=infinity/OnBootSec=600/g;s/OnUnitActiveSec=infinity/OnUnitActiveSec=600/g' $timer_path
+
+    # Additional cleanup steps can be added here if needed
+
+    echo -e "${GREEN}Uninstallation complete.${NC}"
+}
 
 
 if ! figlet -v > /dev/null 2>&1; then
@@ -308,7 +329,8 @@ echo -e "${YELLOW}==============================================================
 echo -e "${CYAN}1  - Installation of ThingsIX forwarder and mux${NC}"
 echo -e "${CYAN}2  - Onboarding of ThingsIX Gateway${NC}"
 echo -e "${CYAN}3  - Install update automation${NC}"
-echo -e "${CYAN}4  - Abort${NC}"
+echo -e "${CYAN}4  - Uninstall ThingsIX${NC}"
+echo -e "${CYAN}5  - Abort${NC}"
 echo -e "${YELLOW}================================================================${NC}"
 
 read -rp "Pick an option and hit ENTER: "
@@ -328,7 +350,12 @@ case "$REPLY" in
 		sleep 1
 		watchtower
  ;;
- 4) 
+ 4)
+        clear
+        sleep 1
+        uninstall
+        ;;
+ 5) 
 		clear
 		sleep 1
 		exit
